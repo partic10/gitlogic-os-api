@@ -36,11 +36,12 @@ The HTTP Transmitter allows you to make GET and POST requests to external endpoi
 #### 2. **Headers**
 - **Purpose**: Custom HTTP headers to include in the request
 - **Format**: `Key: Value` (one per line)
+- **Note**: `User-Agent` header is NOT allowed
 - **Examples**:
   - `Cookie: test=1`
   - `Authorization: Bearer YOUR_TOKEN`
   - `Content-Type: application/json`
-  - `User-Agent: GitLogic-OS/1.0`
+  - `Accept: application/json`
 
 #### 3. **Request Method**
 - **GET**: Retrieve data from server (no body)
@@ -153,7 +154,7 @@ Y = Position_Code ÷ 16 (integer division)
 Website: https://api.weatherapi.com/v1/current.json
 Method: GET
 GET Parameters: key=YOUR_API_KEY&q=New_York&aqi=no
-Headers: User-Agent: GitLogic-OS/1.0
+Headers: Accept: application/json
 ```
 
 **Response** (truncated for panel):
@@ -173,7 +174,7 @@ Character: "Temp: 72°F Humidity: 65%"
 
 **HTTP Transmitter Setup**:
 ```
-Website: https://discordapp.com/api/v10/channels/YOUR_CHANNEL_ID/messages
+Website: https://discord.com/api/v10/channels/YOUR_CHANNEL_ID/messages
 Method: POST
 Headers:
   Authorization: Bot YOUR_BOT_TOKEN
@@ -198,7 +199,6 @@ POST Body:
 Website: https://api.github.com/users/partic10
 Method: GET
 Headers: 
-  User-Agent: GitLogic-OS
   Accept: application/vnd.github.v3+json
 GET Parameters: (none)
 ```
@@ -363,6 +363,7 @@ HTTP Transmitter
 3. **Error Handling**: Use logic gates to detect failed responses (empty, errors, etc.)
 4. **Character Encoding**: Stick to ASCII for panel compatibility
 5. **Position Precision**: Double-check XXYY encoding to avoid display corruption
+6. **Allowed Headers**: Do NOT use User-Agent header - use Authorization, Cookie, Content-Type, Accept instead
 
 ---
 
@@ -375,6 +376,7 @@ HTTP Transmitter
 | Panel only shows first 16 chars | Make sure you're using full 256-char string for full grid |
 | Position appears off-grid | Ensure X (1-16) and Y (1-16) are within bounds |
 | Response not displaying | Check if transmitter actually ran (add timer or trigger) |
+| Request rejected/fails | Ensure you're not using User-Agent header (not allowed) |
 
 ---
 
