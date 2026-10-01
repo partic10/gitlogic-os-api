@@ -15,7 +15,6 @@ https://api.github.com/users/partic10
 
 **Headers:**
 ```
-User-Agent: GitLogic-OS/1.0
 Accept: application/vnd.github.v3+json
 ```
 
@@ -221,7 +220,7 @@ q=language:lua+stars:>1000&sort=stars&order=desc
 1. **Configure Transmitter:**
    - Website: `https://api.github.com/users/octocat`
    - Method: GET
-   - Headers: User-Agent: GitLogic-OS/1.0
+   - Headers: Accept: application/vnd.github.v3+json
 
 2. **Connect to Panel:**
    - Transmitter Response → Panel Character Input
@@ -301,7 +300,7 @@ With token: 1 request per 30 seconds
 
 ```
 Website: https://api.github.com/users/partic10
-Headers: User-Agent: GitLogic-OS/1.0
+Headers: Accept: application/vnd.github.v3+json
 ```
 
 **Display on Panel:**
@@ -464,3 +463,7 @@ Stargazers:          /repos/{owner}/{repo}/stargazers
 - [API Rate Limits](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting)
 - [Personal Access Tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 - [Endpoints Reference](https://docs.github.com/en/rest/reference)
+
+## Important Note
+
+Do NOT use User-Agent header in Build Logic - it is not allowed. Use only: Authorization, Content-Type, Accept, Cookie headers.
