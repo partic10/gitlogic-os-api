@@ -15,7 +15,6 @@ https://api.weatherapi.com/v1/current.json
 
 **Headers:**
 ```
-User-Agent: GitLogic-OS/1.0
 Accept: application/json
 ```
 
@@ -145,8 +144,9 @@ Character: "Press:1013mb  Vis:6.2mi   "
 
 1. **Create HTTP Transmitter**
    - Set website URL
-   - Add API key in headers or parameters
+   - Add API key in GET parameters
    - Set method to GET
+   - Headers: Accept: application/json
 
 2. **Create Timer**
    - Set interval to 30 seconds (or your preference)
@@ -192,3 +192,4 @@ Otherwise:
 - Rate limits apply (check API docs)
 - Responses are typically 200-300 characters
 - Panel wraps/truncates text beyond 16 chars per line
+- Do NOT use User-Agent header (not allowed in Build Logic)
