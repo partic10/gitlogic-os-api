@@ -17,7 +17,6 @@ https://discord.com/api/v10/channels/YOUR_CHANNEL_ID/messages
 ```
 Authorization: Bot YOUR_BOT_TOKEN
 Content-Type: application/json
-User-Agent: GitLogic-OS/1.0
 ```
 
 **GET Parameters:** (none)
@@ -331,3 +330,7 @@ Recommended Intervals:
 - [Bot Permissions](https://discord.com/developers/docs/topics/permissions)
 - [Message Format](https://discord.com/developers/docs/resources/message)
 - [Embed Structure](https://discord.com/developers/docs/resources/message#embed-object)
+
+## Important Note
+
+Do NOT use User-Agent header in Build Logic - it is not allowed. Use only: Authorization, Content-Type, Accept, Cookie headers.
